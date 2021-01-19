@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { SidebarModule } from './sidebar/sidebar.module';
+
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot,RouterModule, Routes } from '@angular/router'
 import {HttpClientModule} from '@angular/common/http';
 
@@ -93,6 +95,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SidebarModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
