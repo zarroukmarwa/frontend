@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot,RouterModule, Routes } from '@angular/router'
 import {HttpClientModule} from '@angular/common/http';
 
@@ -17,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './home/navbar/navbar.component';
+import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { ContainerComponent } from './home/container/container.component';
 import { ProduitComponent } from './produit/produit.component';
 import { AddUpdateProduitComponent } from './produit/add-update-produit/add-update-produit.component';
@@ -84,6 +86,7 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     NavbarComponent,
+    SidebarComponent,
     ContainerComponent,
     ProduitComponent,
     AddUpdateProduitComponent,

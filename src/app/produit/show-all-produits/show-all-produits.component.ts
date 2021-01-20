@@ -30,7 +30,7 @@ export class ShowAllProduitsComponent implements OnInit {
   constructor( private route: Router, 
     private produitservice: Produitserviceservice,
     protected activatedRoute: ActivatedRoute) {
-      this.itemsPerPage = 20;
+      this.itemsPerPage = 10;
         this.routeData = this.activatedRoute.data.subscribe(data => {
             this.page = data.pagingParams.page;
             this.previousPage = data.pagingParams.page;
