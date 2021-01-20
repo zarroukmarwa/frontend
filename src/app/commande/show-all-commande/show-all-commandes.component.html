@@ -1,0 +1,72 @@
+<div id="id01" class="">
+<div class="modal-content">
+    <div class="container">
+        <div>
+            <h2 id="page-heading">
+                <span >Liste des Commandes</span>
+                <button class="btn btn-primary float-right " [routerLink]="['/commande/new']">
+                    <span >
+                    Nouveau Commande
+                    </span>
+                </button>
+            </h2>
+
+            <br/>
+            <div class="table-responsive" *ngIf="listCommandes">
+                <table class="table table-striped">
+                    <thead>
+                    <tr  [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                    <th><span>IDcommande</span> </th>
+                    <th><span>IDclient</span> </th>
+                    <th><span>IDproduit</span> </th>
+                    <th><span>qteCommande</span> </th>
+                    <th><span>dateCommande</span> </th>
+                    <th><span>etatCommande</span> </th>
+                    <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let commande of listCommandes">
+                        <td><a [routerLink]="['/commande', commande.idCommande, 'view' ]">{{commande.idCommande}}</a></td>
+                        <td>{{commande.desigCommande}}</td>
+                        <td>{{commande.marqueCommande}}</td>
+                        <td>{{commande.modeleCommande}}</td>
+                        <td>{{commande.configCommande}}</td>
+                        <td>{{commande.puCommande}}</td>
+                        <td>{{commande.qteCommande}}</td>
+                        <td>
+                            <div *ngIf="commande.categorie">
+                                <a [routerLink]="['../categorie', commande.categorie?.idCateg, 'view' ]" >{{commande.categorie?.idCateg}}</a>
+                            </div>
+                        </td>
+                        <td class="text-right">
+                            <div class="btn-group flex-btn-group-container">
+                                <button type="submit"
+                                        [routerLink]="['/commande', commande.idCommande, 'view' ]"
+                                        class="btn btn-info btn-sm">
+                                    <span class="d-none d-md-inline">View</span>
+                                </button>
+                                <button type="submit"
+                                        [routerLink]="['/commande', commande.idCommande, 'edit']"
+                                        class="btn btn-primary btn-sm">
+                                    <span class="d-none d-md-inline">Edit</span>
+                                </button>
+                                <button type="submit"
+                                        [routerLink]="['/', 'commande', { outlets: { popup: commande.idCommande + '/delete'} }]"
+                                        class="btn btn-danger btn-sm">
+                                    <span class="d-none d-md-inline">Delete</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="listCommandes && listCommandes.length">
+                <div class="row justify-content-center">
+                    <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
