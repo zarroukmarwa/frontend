@@ -1,0 +1,258 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+		<form role="form" name="clientForm" novalidate (ngSubmit)="saveOrUpdate()" #clientForm="ngForm">
+			<div class="form-group" [hidden]="client.idClient">
+				<h1>Nouveau Client</h1>
+				<p>Veuillez saisir les données du client</p>
+				<hr>
+			</div>
+			<div class="form-group" [hidden]="!client.idClient">
+				<h1>Modifier Client</h1>
+				<p>Veuillez saisir les données du client</p>
+				<hr>
+			</div>
+			
+			<div class="form-group" [hidden]="!client.idClient">
+				<label for="idClient" >ID</label>
+				<input type="text" class="form-control" name="idClient"
+					[(ngModel)]="client.idClient" readonly />
+			</div>
+
+			<div class="form-group">
+				<input type="text" class="form-control" name="loginClient"  
+				placeholder="Entrer Login" #loginClient="ngModel"
+					[(ngModel)]="client.loginClient" required maxlength="40"/>
+				<div [hidden]="!((clientForm.controls.loginClient?.dirty 
+								|| clientForm.controls.loginClient?.touched) 
+								&& clientForm.controls.loginClient?.invalid)">
+					<small class="form-text text-danger"
+					[hidden]="!clientForm.controls.loginClient?.errors?.required">
+					Le champs login est obligatoire.
+					</small>
+					<small class="form-text text-danger"
+					[hidden]="!clientForm.controls.loginClient?.errors?.maxlength">
+					Le champs Désignation ne doit pas dépasser 40 caractères.
+					</small>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<input type="text"  [(ngModel)]="client.motpasseClient" class="form-control" name="motpasseClient"
+					placeholder="Entrer mot de passe Client" required #motpasseClient="ngModel" maxlength="50" >
+					<div [hidden]="!((clientForm.controls.motpasseClient?.dirty 
+								|| clientForm.controls.motpasseClient?.touched) 
+								&& clientForm.controls.motpasseClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.motpasseClient?.errors?.required">
+						mot de passe est obligatoire.
+						</small>
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.configClient?.errors?.maxlength">
+						Le champs configuration ne doit pas dépasser 50 caractères.
+						</small>
+					</div>
+			</div>
+
+			<div class="form-group">
+				<input type="text" [(ngModel)]="client.nomClient" class="form-control" name="nomClient"
+					placeholder="Entrer nom Client" required #qteClient="ngModel" maxlength="50">
+					<div [hidden]="!((clientForm.controls.nomClient?.dirty 
+								|| clientForm.controls.nomClient?.touched) 
+								&& clientForm.controls.nomClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.nomClient?.errors?.required">
+						nom est obligatoire.
+						</small>
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.configClient?.errors?.maxlength">
+						Le champs configuration ne doit pas dépasser 50 caractères.
+						</small>
+					</div>
+			</div>
+
+			<div class="form-group">
+				<input type="text" [(ngModel)]="client.prenomClient" class="form-control" name="prenomClient"
+					placeholder="Entrer prenom Client" required #prenomClient="ngModel" maxlength="50">
+					<div [hidden]="!((clientForm.controls.prenomClient?.dirty 
+					|| clientForm.controls.prenomClient?.touched) 
+					&& clientForm.controls.prenomClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.prenomClient?.errors?.required">
+						Le champs prenom est obligatoire.
+						</small>
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.prenomClient?.errors?.maxlength">
+						Le champs configuration ne doit pas dépasser 50 caractères.
+						</small>
+					</div>
+			</div>
+
+			<div class="form-group">
+				<input type="text" [(ngModel)]="client.civiliteClient" class="form-control" name="civiliteClient"
+					placeholder="Entrer civilite  Client" required #civiliteClient="ngModel" maxlength="30">
+					<div [hidden]="!((clientForm.controls.civiliteClient?.dirty 
+					|| clientForm.controls.civiliteClient?.touched) 
+					&& clientForm.controls.civiliteClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.civiliteClient?.errors?.required">
+						Le champs civilite est obligatoire.
+						</small>
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.civiliteClient?.errors?.maxlength">
+						Le champs civilite ne doit pas dépasser 30 caractères.
+						</small>
+					</div>
+			</div>
+
+			<div class="form-group">
+				<input type="text" [(ngModel)]="client.datenaissaanceClient" class="form-control" name="datenaissaanceClient"
+					placeholder="Entrer date naissance Client" required #datenaissaanceClient="ngModel" maxlength="20">
+					<div [hidden]="!((clientForm.controls.datenaissaanceClient?.dirty 
+					|| clientForm.controls.datenaissaanceClient?.touched) 
+					&& clientForm.controls.datenaissaanceClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.datenaissaanceClient?.errors?.required">
+						Le champs date naissance Client est obligatoire.
+						</small>
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.datenaissaanceClient?.errors?.maxlength">
+						Le champs date naissance ne doit pas dépasser 20 caractères.
+						</small>
+					</div>
+			</div>
+
+			<div class="form-group">
+				<input type="number" [(ngModel)]="client.numeroadresseClient" class="form-control" name="numeroadresseClient"
+					placeholder="Entrer numero adresse Client" required #numeroadresseClient="ngModel" maxlength="20" />
+					<div [hidden]="!((clientForm.controls.numeroadresseClient?.dirty 
+					|| clientForm.controls.numeroadresseClient?.touched) 
+					&& clientForm.controls.numeroadresseClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.numeroadresseClient?.errors?.required">
+						Le champs numero adresse Client est obligatoire.
+						</small>
+					</div>
+			</div>
+			<div class="form-group">
+				<input type="text" [(ngModel)]="client.rueadresseClient" class="form-control" name="rueadresseClient"
+					placeholder="Entrer rue adresse Client" required #rueadresseClient="ngModel" maxlength="20">
+					<div [hidden]="!((clientForm.controls.rueadresseClient?.dirty 
+					|| clientForm.controls.rueadresseClient?.touched) 
+					&& clientForm.controls.rueadresseClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.rueadresseClient?.errors?.required">
+						Le champs rue adresse Client est obligatoire.
+						</small>
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.rueadresseClient?.errors?.maxlength">
+						Le champs rue adresse client ne doit pas dépasser 20 caractères.
+						</small>
+					</div>
+			</div>
+			<div class="form-group">
+				<input type="text" [(ngModel)]="client.communeadresseClient" class="form-control" name="communeadresseClient"
+					placeholder="Entrer commune adresse Client" required #communeadresseClient="ngModel" maxlength="20">
+					<div [hidden]="!((clientForm.controls.communeadresseClient?.dirty 
+					|| clientForm.controls.communeadresseClient?.touched) 
+					&& clientForm.controls.communeadresseClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.communeadresseClient?.errors?.required">
+						Le champs rue commune adresse Client est obligatoire.
+						</small>
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.communeadresseClient?.errors?.maxlength">
+						Le champs commune adresse client ne doit pas dépasser 20 caractères.
+						</small>
+					</div>
+			</div>
+
+			<div class="form-group">
+				<input type="text" [(ngModel)]="client.villeadresseClient" class="form-control" name="villeadresseClient"
+					placeholder="Entrer ville adresse Client" required #villeadresseClient="ngModel" maxlength="20">
+					<div [hidden]="!((clientForm.controls.villeadresseClient?.dirty 
+					|| clientForm.controls.villeadresseClient?.touched) 
+					&& clientForm.controls.villeadresseClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.villeadresseClient?.errors?.required">
+						Le champs ville adresse Client est obligatoire.
+						</small>
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.villeadresseClient?.errors?.maxlength">
+						Le champs commune adresse client ne doit pas dépasser 20 caractères.
+						</small>
+					</div>
+			</div>
+			<div class="form-group">
+				<input type="text" [(ngModel)]="client.cpadresseCleint" class="form-control" name="cpadresseCleint"
+					placeholder="Entrer cp adresse Client" required #cpadresseCleint="ngModel" maxlength="20">
+					<div [hidden]="!((clientForm.controls.cpadresseCleint?.dirty 
+					|| clientForm.controls.cpadresseCleint?.touched) 
+					&& clientForm.controls.cpadresseCleint?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.villeadresseClient?.errors?.required">
+						Le champs ville adresse Client est obligatoire.
+						</small>
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.cpadresseCleint?.errors?.maxlength">
+						Le champs commune adresse client ne doit pas dépasser 20 caractères.
+						</small>
+					</div>
+			</div>
+			<div class="form-group">
+				<input type="number" [(ngModel)]="client.telClient" class="form-control" name="telClient"
+					placeholder="Entrer numero tel Client" required #cpadresseCleint="ngModel" maxlength="20">
+					<div [hidden]="!((clientForm.controls.telClient?.dirty 
+					|| clientForm.controls.telClient?.touched) 
+					&& clientForm.controls.telClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.telClient?.errors?.required">
+						Le champs tel Client est obligatoire.
+						</small>
+					</div>
+			</div>
+			<div class="form-group">
+				<input type="number" [(ngModel)]="client.faxClient" class="form-control" name="faxClient"
+					placeholder="Entrer Fax Client" required #faxClient="ngModel" maxlength="20">
+					<div [hidden]="!((clientForm.controls.faxClient?.dirty 
+					|| clientForm.controls.faxClient?.touched) 
+					&& clientForm.controls.faxClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.faxClient?.errors?.required">
+						Le champs fax Client est obligatoire.
+						</small>
+					</div>
+			</div>
+			<div class="form-group">
+				<input type="number" [(ngModel)]="client.gsmClient" class="form-control" name="gsmClient"
+					placeholder="Entrer gsm Client" required #gsmClien="ngModel" maxlength="20">
+					<div [hidden]="!((clientForm.controls.gsmClient?.dirty 
+					|| clientForm.controls.gsmClient?.touched) 
+					&& clientForm.controls.gsmClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.faxClient?.errors?.required">
+						Le champs gsm Client est obligatoire.
+						</small>
+					</div>
+			</div>
+			<div class="form-group">
+				<input type="email" [(ngModel)]="client.emailClient" class="form-control" name="emailClient"
+					placeholder="Entrer email Client" required #emailClient="ngModel" maxlength="20">
+					<div [hidden]="!((clientForm.controls.emailClient?.dirty 
+					|| clientForm.controls.emailClient?.touched) 
+					&& clientForm.controls.emailClient?.invalid)">
+						<small class="form-text text-danger"
+						[hidden]="!clientForm.controls.emailClient?.errors?.required">
+						Le champs email Client est obligatoire.
+						</small>
+					</div>
+			</div>
+
+
+			<div class="clearfix">
+				<input [disabled]="!clientForm.valid" class="btn btn-info" type="submit" value="Créer">
+				<input class="btn btn-secondary" type="reset" value="Effacer">
+			</div>
+
+		</form>
+	</div>
+</div>

@@ -1,0 +1,84 @@
+<div id="id01" class="">
+
+<div class="modal-content">
+    <div class="container">
+
+        <div>
+            <h2 id="page-heading">
+                <span >Liste des Clients</span>
+                <button class="btn btn-primary float-right " [routerLink]="['/client/new']">
+                    <span >
+                    Nouveau Client
+                    </span>
+                </button>
+            </h2>
+
+            <br/>
+            <div class="table-responsive" *ngIf="listClients">
+                <table class="table table-striped">
+                    <thead>
+                    <tr  [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                    <th><span>ID</span> </th>
+                    <th><span>login</span> </th>
+                    <th><span>motpasse</span> </th>
+                    <th><span>nom</span> </th>
+                    <th><span>prenom</span> </th>
+                    <th><span>civilite</span> </th>
+                    <th><span>datenaissaance</span> </th>
+                    <th><span>numeroadresse</span> </th>
+                    <th><span>rueadresse</span> </th>
+                    <th><span>communeadresse</span> </th>
+                    <th><span>villeadresse</span> </th>
+                    <th><span>cpadresse</span> </th>
+                    <th><span>tel</span> </th>
+                    <th><span>fax</span> </th>
+                    <th><span>gsm</span> </th> 
+                    <th><span>email</span> </th>
+                    <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let client of listClients">
+                        <td><a [routerLink]="['/client', client.idClient, 'view' ]">{{client.idClient}}</a></td>
+                        <td>{{client.desigClient}}</td>
+                        <td>{{client.marqueClient}}</td>
+                        <td>{{client.modeleClient}}</td>
+                        <td>{{client.configClient}}</td>
+                        <td>{{client.puClient}}</td>
+                        <td>{{client.qteClient}}</td>
+                        <td>
+                            <div *ngIf="client.categorie">
+                                <a [routerLink]="['../categorie', client.categorie?.idCateg, 'view' ]" >{{client.categorie?.idCateg}}</a>
+                            </div>
+                        </td>
+                        <td class="text-right">
+                            <div class="btn-group flex-btn-group-container">
+                                <button type="submit"
+                                        [routerLink]="['/client', client.idClient, 'view' ]"
+                                        class="btn btn-info btn-sm">
+                                    <span class="d-none d-md-inline">View</span>
+                                </button>
+                                <button type="submit"
+                                        [routerLink]="['/client', client.idClient, 'edit']"
+                                        class="btn btn-primary btn-sm">
+                                    <span class="d-none d-md-inline">Edit</span>
+                                </button>
+                                <button type="submit"
+                                        [routerLink]="['/', 'client', { outlets: { popup: client.idClient + '/delete'} }]"
+                                        class="btn btn-danger btn-sm">
+                                    <span class="d-none d-md-inline">Delete</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="listClients && listClients.length">
+                <div class="row justify-content-center">
+                    <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
