@@ -180,7 +180,9 @@ const appRoutes: Routes = [
   },
 
   { path: 'commande/all', component: ShowAllCommandesComponent },
-  { path: '**', component: NotfoundComponent }
+  
+  { path: 'commande/all/add-update', component: AddUpdateCommandeComponent }
+
 
   ];
   
