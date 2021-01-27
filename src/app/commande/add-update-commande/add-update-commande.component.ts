@@ -13,29 +13,34 @@ import {
 import Swal from 'sweetalert2'
 import { Commande } from '../../model/commande'; //Chemin par rapport a la classe AddUpdateCommandeComponent
 import { Commandeserviceservice } from '../../services/commandeservice.service';
+import { Clientserviceservice } from './../../services/clientservice.service';
+import { Client } from './../../model/client'; //Chemin par rapport a la classe AddUpdateProduitComponent
 
 
 @Component({
   selector: 'app-add-update-commande',
   templateUrl: './add-update-commande.component.html',
   styleUrls: ['./add-update-commande.component.css'],
-  providers: [Commandeserviceservice]
+  providers: [Commandeserviceservice,Clientserviceservice]
 
 })
 export class AddUpdateCommandeComponent implements OnInit {
 
   commande: Commande = { };
-
+  listClient: Client[];
 
   constructor(
 
     private route: Router,
+    private clientservice: Clientserviceservice, 
     private commandeservice: Commandeserviceservice) {
       this.commande = new Commande();
     }
 
   ngOnInit() {
-
+    this.clientservice.findAll().subscribe(data => {
+      this.listClient = data;
+    });
  
     
    }
