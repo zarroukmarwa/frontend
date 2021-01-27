@@ -74,7 +74,7 @@ export class AddUpdateProduitComponent implements OnInit {
           'success'
         );
   
-        this.gotoProduitList();
+       // this.gotoProduitList();
   
       })
     }
