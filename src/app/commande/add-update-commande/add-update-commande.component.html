@@ -2,9 +2,16 @@
     <div class="modal-content">
         <div class="container">
             <div>
-                <h1 id="page-heading">
-                    <span>Jjouter une nouvelle commande</span>
-                </h1>
+                <div class="form-group" [hidden]="produit.idProduit">
+                    <h1>Nouveau Commande</h1>
+                    <p>Veuillez saisir les données de la Commande</p>
+                    <hr>
+                </div>
+                <div class="form-group" [hidden]="!produit.idProduit">
+                    <h1>Modifier Commande</h1>
+                    <p>Veuillez saisir les données de la Commande</p>
+                    <hr>
+                </div>
 
                 <div class="site-section">
                     <div class="container">
