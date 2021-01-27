@@ -15,24 +15,27 @@ import { Commande } from '../../model/commande'; //Chemin par rapport a la class
 import { Commandeserviceservice } from '../../services/commandeservice.service';
 import { Clientserviceservice } from './../../services/clientservice.service';
 import { Client } from './../../model/client'; //Chemin par rapport a la classe AddUpdateProduitComponent
+import { Produitserviceservice } from './../../services/produitservice.service';
+import { Produit } from './../../model/produit'; //Chemin par rapport a la classe AddUpdateProduitComponent
 
 
 @Component({
   selector: 'app-add-update-commande',
   templateUrl: './add-update-commande.component.html',
   styleUrls: ['./add-update-commande.component.css'],
-  providers: [Commandeserviceservice,Clientserviceservice]
+  providers: [Commandeserviceservice,Clientserviceservice,Produitserviceservice]
 
 })
 export class AddUpdateCommandeComponent implements OnInit {
 
   commande: Commande = { };
   listClient: Client[];
-
+  listProduit: Produit[];
   constructor(
 
     private route: Router,
     private clientservice: Clientserviceservice, 
+    private produitservice: Produitserviceservice, 
     private commandeservice: Commandeserviceservice) {
       this.commande = new Commande();
     }
@@ -41,7 +44,9 @@ export class AddUpdateCommandeComponent implements OnInit {
     this.clientservice.findAll().subscribe(data => {
       this.listClient = data;
     });
- 
+    this.produitservice.findAll().subscribe(data => {
+      this.listProduit = data;
+    });
     
    }
 

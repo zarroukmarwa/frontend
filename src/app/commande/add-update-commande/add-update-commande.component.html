@@ -27,7 +27,14 @@
                                                 {{clientOption.nomClient}}</option>
                                         </select>
                                     </div>   
-
+                                    <div class="form-group">
+                                        <select class="form-control" id="produit" name="produit" [(ngModel)]="produit.idProduit" >
+                                            <option [ngValue]="null"></option>
+                                            <option [ngValue]="produitOption.idProduit === commande.idproduit?.idProduit ? commande.idProduit : produitOption" *ngFor="let produitOption of listProduit">
+                                                {{produitOption.idProduit}}:
+                                                {{produitOption.desigProduit}}</option>
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="IDPRODUIT">
 
