@@ -11,13 +11,16 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <form>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="IDCOMMANDE">
+                                    
+                                    <div class="form-group" [hidden]="!commande.idCommande">
+                                        <label for="idCommande" >ID</label>
+                                        <input type="text" class="form-control" name="idCommande"
+                                            [(ngModel)]="commande.idCommande" readonly />
                                     </div>
 
                                     
                                     <div class="form-group">
-                                        <select class="form-control" id="client" name="client" [(ngModel)]="commande.idclient" >
+                                        <select class="form-control" id="client" name="client" [(ngModel)]="commande.idClient" >
                                             <option [ngValue]="null"></option>
                                             <option [ngValue]="clientOption.idClient === commande.idclient?.idClient ? commande.idClient : clientOption" *ngFor="let clientOption of listClient">
                                                 {{clientOption.idClient}}:
