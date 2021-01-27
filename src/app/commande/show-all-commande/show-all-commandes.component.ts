@@ -5,14 +5,17 @@ import swal from 'sweetalert2';
 
 import { Commande } from '../../model/commande'; //Chemin par rapport a la classe AddUpdateCommandeComponent
 import { Commandeserviceservice } from '../../services/commandeservice.service';
-import { Categorieserviceservice } from '../../services/categorieservice.service';
+import { Clientserviceservice } from './../../services/clientservice.service';
+import { Client } from './../../model/client'; //Chemin par rapport a la classe AddUpdateProduitComponent
+import { Produitserviceservice } from './../../services/produitservice.service';
+import { Produit } from './../../model/produit'; //Chemin par rapport a la classe AddUpdateProduitComponent
 
 @Component({
   selector: 'app-show-all-commandes',
   templateUrl: './show-all-commandes.component.html',
   styleUrls: ['./show-all-commandes.component.css'],
-  providers: [Commandeserviceservice,
-    Categorieserviceservice]
+  providers: [Commandeserviceservice,Clientserviceservice,Produitserviceservice]
+
 })
 export class ShowAllCommandesComponent implements OnInit {
 

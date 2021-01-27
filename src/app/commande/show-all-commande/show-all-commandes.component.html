@@ -28,17 +28,13 @@
                     <tbody>
                     <tr *ngFor="let commande of listCommandes">
                         <td><a [routerLink]="['/commande', commande.idCommande, 'view' ]">{{commande.idCommande}}</a></td>
-                        <td>{{commande.desigCommande}}</td>
-                        <td>{{commande.marqueCommande}}</td>
-                        <td>{{commande.modeleCommande}}</td>
-                        <td>{{commande.configCommande}}</td>
-                        <td>{{commande.puCommande}}</td>
+                        <td>{{commande.idCommande}}</td>
+                        <td>{{commande.client?.idClient}}</td>
+                        <td>{{commande.produit?.idProduit}}</td>
                         <td>{{commande.qteCommande}}</td>
-                        <td>
-                            <div *ngIf="commande.categorie">
-                                <a [routerLink]="['../categorie', commande.categorie?.idCateg, 'view' ]" >{{commande.categorie?.idCateg}}</a>
-                            </div>
-                        </td>
+                        <td>{{commande.dateCommande}}</td>
+                        <td>{{commande.etatCommande}}</td>
+                        
                         <td class="text-right">
                             <div class="btn-group flex-btn-group-container">
                                 <button type="submit"
