@@ -14,7 +14,7 @@ export class Commandeserviceservice {
 
     constructor(protected http: HttpClient) {
 
-        this.resourceUrl =  'https://zarrouk-backend.herokuapp.com/api/produits';
+        this.resourceUrl =  'https://zarrouk-backend.herokuapp.com/api/commandes';
         
     }
 
