@@ -17,7 +17,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form role="form" name="commandeForm" novalidate (ngSubmit)="saveOrUpdate()" #produitForm="ngForm">                                
+                                <form role="form" name="commandeForm" novalidate (ngSubmit)="saveOrUpdate()" #commandeForm="ngForm">                                
                                     <div class="form-group" [hidden]="!commande.idCommande">
                                         <label for="idCommande" >ID</label>
                                         <input type="text" class="form-control" name="idCommande"
@@ -26,17 +26,17 @@
 
                                     
                                     <div class="form-group">
-                                        <select class="form-control" id="client" name="client" [(ngModel)]="commande.idClient" >
+                                        <select class="form-control" id="client" name="client" [(ngModel)]="commande.client" >
                                             <option [ngValue]="null"></option>
-                                            <option [ngValue]="clientOption.idClient === commande.idclient?.idClient ? commande.idClient : clientOption" *ngFor="let clientOption of listClient">
+                                            <option [ngValue]="clientOption.idClient === commande.client?.idClient ? commande.client : clientOption" *ngFor="let clientOption of listClient">
                                                 {{clientOption.idClient}}:
                                                 {{clientOption.nomClient}}</option>
                                         </select>
                                     </div>   
                                     <div class="form-group">
-                                        <select class="form-control" id="produit" name="produit" [(ngModel)]="commande.idProduit" >
+                                        <select class="form-control" id="produit" name="produit" [(ngModel)]="commande.produit" >
                                             <option [ngValue]="null"></option>
-                                            <option [ngValue]="produitOption.idProduit === commande.idproduit?.idProduit ? commande.idProduit : produitOption" *ngFor="let produitOption of listProduit">
+                                            <option [ngValue]="produitOption.idProduit === commande.produit?.idProduit ? commande.produit : produitOption" *ngFor="let produitOption of listProduit">
                                                 {{produitOption.idProduit}}:
                                                 {{produitOption.desigProduit}}</option>
                                         </select>
@@ -54,7 +54,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input [disabled]="!produitForm.valid" class="btn btn-info" type="submit" value="Créer">
+                                        <input [disabled]="!commandeForm.valid" class="btn btn-info" type="submit" value="Créer">
 
                                     </div>
 

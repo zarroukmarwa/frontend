@@ -66,9 +66,10 @@ export class AddUpdateCommandeComponent implements OnInit {
   
       })
     } else {
+      console.log(this.commande);
       this.commandeservice.create(this.commande).subscribe(result => {
 
-        console.log(result);
+        console.log("zzzzzzzzzzzzz");
   
         Swal.fire(
           'Bravo!',
