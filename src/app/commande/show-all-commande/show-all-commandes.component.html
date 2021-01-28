@@ -28,9 +28,8 @@
                     <tbody>
                     <tr *ngFor="let commande of listCommandes">
                         <td><a [routerLink]="['/commande', commande.idCommande, 'view' ]">{{commande.idCommande}}</a></td>
-                        <td>{{commande.idCommande}}</td>
-                        <td>{{commande.client?.idClient}}</td>
-                        <td>{{commande.produit?.idProduit}}</td>
+                        <td>{{commande.client?.nomClient}}</td>
+                        <td>{{commande.produit?.desigProduit}}</td>
                         <td>{{commande.qteCommande}}</td>
                         <td>{{commande.dateCommande}}</td>
                         <td>{{commande.etatCommande}}</td>
