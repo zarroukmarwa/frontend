@@ -43,14 +43,14 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="qteCommande"  placeholder="QTE COMMANDE">
+                                        <input type="number" class="form-control" name="qteCommande" [(ngModel)]="commande.qteCommande"  placeholder="QTE COMMANDE">
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="date" class="form-control"  name="dateCommande"  placeholder="DATE COMMANDE">
+                                        <input type="date" class="form-control"  name="dateCommande"  [(ngModel)]="commande.dateCommande" placeholder="DATE COMMANDE">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control"  name="etatCommande" placeholder="ETAT COMMANDE">
+                                        <input type="text" class="form-control"  name="etatCommande" [(ngModel)]="commande.etatCommande" placeholder="ETAT COMMANDE">
                                     </div>
 
                                     <div class="form-group">
